@@ -245,8 +245,11 @@ var Group = function () {
                     }
 
                     // File object, attach its file for upload
-                    data.attributes[item[0]] = '___upload-' + item[0];
-                    data.files['___upload-' + item[0]] = item[1];
+		    //changed for capitalc/parentimage
+            	   data.attributes[item[0]] =  item[0];
+                   data.files[ item[0]] = item[1];
+                    //data.attributes[item[0]] = '___upload-' + item[0];
+                    //data.files['___upload-' + item[0]] = item[1];
                 }
             } catch (err) {
                 _didIteratorError = true;
