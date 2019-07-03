@@ -47,8 +47,11 @@ export default class Group {
             }
 
             // File object, attach its file for upload
-            data.attributes[item[0]] = '___upload-' + item[0];
-            data.files['___upload-' + item[0]] = item[1];
+            //data.attributes[item[0]] = '___upload-' + item[0];
+            //data.files['___upload-' + item[0]] = item[1];
+            //changed for capitalc/parentimag
+            data.attributes[item[0]] =  item[0];
+            data.files[ item[0]] = item[1];
         }
 
         return data;
