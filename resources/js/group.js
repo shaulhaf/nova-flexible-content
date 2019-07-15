@@ -34,6 +34,9 @@ export default class Group {
         };
 
         for(var item of this.values()) {
+            if(item[0].indexOf('__media-custom-properties__') == 0) {
+                console.log('hello')
+            }
             if(item[0].indexOf('___upload-') == 0) {
                 // Previously nested file attribute
                 data.files[item[0]] = item[1];
