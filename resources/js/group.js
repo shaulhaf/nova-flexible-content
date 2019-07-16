@@ -34,9 +34,6 @@ export default class Group {
         };
 
         for(var item of this.values()) {
-            if(item[0].indexOf('__media-custom-properties__') == 0) {
-                console.log('hello')
-            }
             if(item[0].indexOf('___upload-') == 0) {
                 // Previously nested file attribute
                 data.files[item[0]] = item[1];
@@ -50,9 +47,8 @@ export default class Group {
             }
 
             // File object, attach its file for upload
-            //data.attributes[item[0]] = '___upload-' + item[0];
-            //data.files['___upload-' + item[0]] = item[1];
-            //changed for capitalc/parentimag
+            // data.attributes[item[0]] = '___upload-' + item[0];
+            // data.files['___upload-' + item[0]] = item[1];
             data.attributes[item[0]] =  item[0];
             data.files[ item[0]] = item[1];
         }
@@ -64,9 +60,9 @@ export default class Group {
      * Generate a unique string for current group
      */
     getTemporaryUniqueKey(attribute) {
-        return Math.random().toString(36).substring(2, 15)
-            + Math.random().toString(36).substring(2, 15)
-            + '-' + this.name;
+        return (Math.random().toString(36).substring(2, 15)
+            + Math.random().toString(36).substring(2, 15)).substr(0,16)
+            // + '-' + this.name;
     }
 
     /**
